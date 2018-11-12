@@ -6,3 +6,5 @@ def collatz(number):
 
 # Then write a program that lets the user type in an integer and that keeps
 # calling collatz() on that number until the function returns the value 1.
+
+# To do, ok.
