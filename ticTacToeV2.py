@@ -15,48 +15,6 @@ def printBoard(board):
     print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
 
 
-def checkwin():
-    if theBoard[top-L] == theBoard[top-M] == theBoard[top-R]:
-        victory = True
-
-
-def playTicTacToe():
-    global victory
-    turn = 'X'
-#    winner = False
-    while victory = False:
-        printBoard(theBoard)
-
-        legal = "unknown"
-
-        while legal != "Y":
-
-            move = input('\n Turn for ' + turn + '. Move on which space? > ')
-            # Check if input is a key in the board, if not back to main loop
-            if move not in theBoard:
-                print("I don't understand that input.")
-                break
-            # Check if square is open, if not break back to main loop
-            if theBoard[move] != " ":
-                print("\nCannot move there.", theBoard[move], "is there.")
-                legal = "N"
-                break
-            # If move legal update dict, change turn and break to main loop
-            else:
-                theBoard[move] = turn
-                legal = "Y"
-            if turn == 'X':
-                checkwin(turn)
-                turn = 'O'
-                legal = "Y"
-            else:
-                checkwin(turn)
-                turn = 'X'
-                legal = "Y"
-
-    printBoard(theBoard)
-
-
 def checkwin(winner):
 
     def endgame():
@@ -94,6 +52,43 @@ def checkwin(winner):
         print("\nNobody wins. The game is a draw.")
         printBoard(theBoard)
         exit()
+
+
+def playTicTacToe():
+    global victory
+    turn = 'X'
+#    winner = False
+    while victory == False:
+        printBoard(theBoard)
+
+        legal = "unknown"
+
+        while legal != "Y":
+
+            move = input('\n Turn for ' + turn + '. Move on which space? > ')
+            # Check if input is a key in the board, if not back to main loop
+            if move not in theBoard:
+                print("I don't understand that input.")
+                break
+            # Check if square is open, if not break back to main loop
+            if theBoard[move] != " ":
+                print("\nCannot move there.", theBoard[move], "is there.")
+                legal = "N"
+                break
+            # If move legal update dict, change turn and break to main loop
+            else:
+                theBoard[move] = turn
+                legal = "Y"
+            if turn == 'X':
+                checkwin(turn)
+                turn = 'O'
+                legal = "Y"
+            else:
+                checkwin(turn)
+                turn = 'X'
+                legal = "Y"
+
+    printBoard(theBoard)
 
 
 playTicTacToe()
